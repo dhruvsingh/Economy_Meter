@@ -1,7 +1,3 @@
-                                                                     
-                                                                     
-                                                                     
-                                             
 FOR FUEL CALCULATION
 fuel_id - integer - auto_increment - - primary key
 user_id - integer - auto_increment - foreign key
