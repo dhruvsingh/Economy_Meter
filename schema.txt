@@ -20,6 +20,7 @@ FOR USERS' VEHICLE THAT HE REGISTERS WITH US(for registration-second tab)
 vehicle_id - integer - auto_increment - primary key
 user_id - integer - auto_increment - foreign key
 vehicle_type - varchar/enum('car','motorcycle')
+reg_no - varchar(12)
 brand - varchar(50) - brand of vehicle(say honda) - in UI we can provide a dropdown list
 model - varchar(50) - say Amaze
 Variant - varchar(20) - say 3rd model (called S in honda) - optional(can be null)
@@ -38,6 +39,16 @@ city - varchar(20) - noida
 locality - varchar(20) - sec-11 - optional (can be null)
 
 
-Main issue here is shall we get fuel price from user or shall we daily scan and update all prices
+1.Main issue here is shall we get fuel price from user or shall we daily scan and update all prices
 right now the DB structure has prices in fuel table only
-It is possible that i live in UP but i buy fuel from Delhi as it is cheaper; many ppl might be doing that
+It is possible that i live in UP but i buy fuel from Delhi as it is cheaper; many ppl might be doing that.
+Solution : Add a field in fuel table that lists out, fuel filled from : say delhi
+And update the same in a separate table(say fuel prices)
+
+FOR STORING FUEL PRICES
+id - int - primary key
+fuel_type - enum - ('petrol','diesel','LPG','CNG')
+price - int
+city - varchar
+state - varchar
+date - timestamp
